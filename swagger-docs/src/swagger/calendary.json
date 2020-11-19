@@ -1,0 +1,415 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+            "name": "MENU",
+            "url": "https://doc-playtec-v4.herokuapp.com/menu"
+          }
+        
+    },
+    "servers": [
+        {
+            "url": "https://auth-playtec-v4.herokuapp.com",
+            "description": "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://coursesplaytecv2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://siagie-playtec-v2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        
+        {
+            "url": "https://calendary-playtec-v5.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    
+    "paths": {
+        "/api": {
+            "post": {
+                "tags": [
+                    "CREATE CALENDARY"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Registrar una nuevo calendario",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/CreateCalendary"
+                            },
+                            "example":
+                            {
+                                "service":"calendary",
+                                "language":"es",
+                                "fname":"createCalendary",
+                                "title": "Realizar tarea de matematica",
+                                "hexColor":"#c45122",
+                                "date_start": "2022-08-17",
+                                "time_start":"12:12:11",
+                                "time_end":"19:22:11",
+                                "date_end": "2012-09-19",
+                                "description":"Revisar el tema de probabilidades"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+       
+       ,  
+        
+        "/api#  ": {
+            "post": {
+                "tags": [
+                    "UPDATE CALENDARY"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Actualizar datos de un calendario",
+                "requestBody": {
+                    "description": "Actualizar datos de una calendario",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/UpdateCalendary"
+                            },
+                            "example":
+                            {
+                                "service": "calendary",
+                                "language":"es",
+                                "fname": "updateCalendary",
+                                "title": "Tarea de lenguaje",
+                                "hexColor": "#c25423",
+                                "description": "Repasar tema de fonetica",
+                                "date_start": "2019-08-22",
+                                "date_end": "2020-09-20",
+                                "time_start": "12:07:11",
+                                "time_end": "15:32:5",
+                                "calendary_id": "5f4faff0c84a650041b509df"
+                            
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        
+        
+        "/api#    ": {
+            "post": {
+                "tags": [
+                    "DELETE CALENDARY"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Eliminar un calendario",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/DeleteCalendary"
+                            },
+                            "example":
+                            {
+                                "service":"calendary",
+                                "language":"es",
+                                "fname":"deleteCalendary",
+                                "calendary_id":"5f4faff0c84a650041b509df"
+                            
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        },
+        "/api#     ": {
+            "post": {
+                "tags": [
+                    "GET CALENDARS"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener los calendarios de todos los usuarios",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetCalendaries"
+                            },
+                            "example":
+                            {
+                                "service":"calendary",
+                                "fname":"getCalendars",
+                                "language":"es"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        }
+     },
+
+        "components": {        
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            },
+            
+            "responses": {
+                "UnauthorizedError":{
+                "description":"Access token is missing or invalid"
+                }
+            }
+          },
+        
+    "definitions": {
+    
+        "GetCalendars": {
+            "type": "object",
+            "properties":{
+           
+                "service": {
+                    "type": "String"
+                },
+               
+                "fname": {
+                    "type": "String"
+                }
+              
+            }
+           
+        }
+        ,
+        "GetCalendaries": {
+            "type": "object",
+            "properties":{
+           
+                "service": {
+                    "type": "String"
+                },
+               
+                "fname": {
+                    "type": "String"
+                },
+               
+                "page": {
+                    "type": "String"
+                }
+              
+            }
+           
+        },
+        
+       
+        "CreateCalendary": 
+        {
+            "type": "object",
+            "properties": {
+            
+                "service":{
+                    "type": "String"
+                },
+                "fname":{
+                    "type": "String"
+                },
+                "title": {
+                    "type": "String"
+                },
+                "hexColor":{
+                    "type": "String"
+                },
+                "date_start": {
+                    "type": "String"
+                },
+                "time_start":{
+                    "type": "String"
+                },
+                "time_end":{
+                    "type": "String"
+                },
+                "date_end": {
+                    "type": "String"
+                },
+                "description":{
+                    "type": "String"
+                }
+            }
+       },
+        "UpdateCalendary": {
+            "type": "object",
+           
+            "properties": {
+            
+                "service":{
+                    "type": "String"
+                },
+                "fname":{
+                    "type": "String"
+                },
+                "title": {
+                    "type": "String"
+                },
+                "hexColor":{
+                    "type": "String"
+                },
+                "date_start": {
+                    "type": "String"
+                },
+                "time_start":{
+                    "type": "String"
+                },
+                "time_end":{
+                    "type": "String"
+                },
+                "date_end": {
+                    "type": "String"
+                },
+                "description":{
+                    "type": "String"
+                }
+            }
+           
+        },
+      
+       
+        "DeleteCalendary": {
+            "type": "object",
+          
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+               
+                "fname": {
+                    "type": "String"
+                },
+                "calendary_id": {
+                    "type": "String"
+                }
+            }
+           
+        }
+
+    }
+}

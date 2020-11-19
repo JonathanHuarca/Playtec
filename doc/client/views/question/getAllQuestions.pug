@@ -1,0 +1,85 @@
+.form-group.row.align-items-center
+    h5(id="getAllQuestions").col-3.text-success Get AllQuestions
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getAllQuestions'
+p Conseguir todas las preguntas 
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |     service<span class="text-danger">*</span>:"courses",
+                        |     language<span class="text-danger">*</span>:"es",
+                        |     fname<span class="text-danger">*</span>: "getAllQuestions"
+                        |}
+    
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 25rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "questions": [
+                        |        {
+                        |            "_id": String,
+                        |            "answers": [],
+                        |            "id_lesson": String,
+                        |            "question": String,
+                        |            "__v": number
+                        |        },
+                        |        {
+                        |            "_id": String,
+                        |            "answers": [],
+                        |            "id_lesson": String,
+                        |            "question": String,
+                        |            "__v": number
+                        |        }        
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname": "getAllQuestions"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 25rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |    "message": "Todas las preguntas encontradas",
+                                |    "questions": [
+                                |        {
+                                |            "_id": "5f3eb41f2d4da514bfbb56d0",
+                                |            "answers": [],
+                                |            "id_lesson": "5f3804e78deb1f321c6343ea",
+                                |            "question": "¿Como se declara una variable?",
+                                |            "__v": 0
+                                |        },
+                                |        {
+                                |            "_id": "5f3eb4972d4da514bfbb56d1",
+                                |            "answers": [],
+                                |            "id_lesson": "5f3804f78deb1f321c6343eb",
+                                |            "question": "¿Como se declara una variable de manera Inferencial?",
+                                |            "__v": 0
+                                |        }        
+                                |}

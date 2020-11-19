@@ -1,0 +1,447 @@
+{
+    "openapi": "3.0.0",
+    
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+            "name": "MENU",
+            "url":"https://doc-playtec-v4.herokuapp.com/menu"
+          }
+        
+    },
+    "servers": [
+        {
+            "url": "https://auth-playtec-v4.herokuapp.com",
+            "description": "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://coursesplaytecv2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://siagie-playtec-v2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "tags": [
+        {
+          "name": "createCoursePlaytec",
+          "description": "Registrar un nuevo curso"
+        },
+        {
+          "name": "getCoursePlaytec",
+          "description": "Obtener un curso"
+        },
+        {
+          "name": "getCoursesPlaytec",
+          "description": "Obtener todos los cursos"
+        },
+        {
+          "name": "getTemary",
+          "description": "Conseguir temario de un curso"
+        }
+        ,
+        {
+          "name": "updateCoursePlaytec",
+          "description": "Actualizar datos de curso"
+        },
+        {
+          "name": "deleteCoursePlaytec",
+          "description": "Eliminar un curso"
+        }
+      ],
+    "paths": {
+        "/api": {
+            "post": {
+                "tags": [
+                    "createCoursePlaytec"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+
+                "requestBody": {
+                    "description": "Crear un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/coursePlaytec"
+                            },
+                            "example":
+                            {
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"createCoursePlaytec",
+                                "course_name":"Java",
+                                "description":"lenguague de programaciòn",
+                                "price":50
+                              }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        "/api#": {
+            "post": {
+                "tags": [
+                    "getCoursePlaytec"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "requestBody": {
+                    "description": "Obtener un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/coursePlaytec"
+                            },
+                            "example":
+                            {
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getCoursePlaytec",
+                                "id_course":"5f36f48a014c2e002ef7de6f"
+                              }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        
+        "/api#  ": {
+            "post": {
+                "tags": [
+                    "getCoursesPlaytec"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+             
+                "requestBody": {
+                    "description": "Obtener todos  los cursos",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/coursePlaytec"
+                            },
+                            "example":
+                            {
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getCoursesPlaytec"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        "/api# ": {
+            "post": {
+                "tags": [
+                    "getTemary"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+             
+                "requestBody": {
+                    "description": "Obtener temario de un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/coursePlaytec"
+                            },
+                            "example":
+                            {
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getTemary",
+                                "id_course":"5f36f49a4f3afa001798f914"
+                              }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        "/api#    ": {
+            "post": {
+                "tags": [
+                    "updateCoursePlaytec"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+             
+                "requestBody": {
+                    "description": "Actualizar datos de un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/coursePlaytec"
+                            },
+                            "example":
+                            {
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"updateCoursePlaytec",
+                                "id_course":"5f36f48a014c2e002ef7de6f",
+                                "course_name":"JavaScrip",
+                                "description":"Lenguague de programación"
+
+                              }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        "/api#   ": {
+            "post": {
+                "tags": [
+                    "deleteCoursePlaytec"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+             
+                "requestBody": {
+                    "description": "Eliminar un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/coursePlaytec"
+                            },
+                            "example":
+                            {
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"deleteCoursePlaytec",
+                                "id_course":"5f3c379ba54e9c0040a58d8d"
+                              }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+    
+        },
+        "components": {        
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            },
+            "responses": {
+                "UnauthorizedError":{
+                "description":"Access token is missing or invalid"
+                }
+            }
+          },
+        
+    "definitions": {
+
+        "coursePlaytec": {
+            "type": "object",
+            "properties": {
+                "createdBy": {
+                    "type": "Schema.Types.ObjectId"
+                },
+                "course_name": {
+                    "type": "String"
+                },
+                "description": {
+                    "type": "String"
+                },
+                "price": {
+                    "type": "Number"
+                },
+                "state": {
+                    "type": "String"
+                },
+                "level": {
+                    "type": "String"
+                },
+                "category": {
+                    "type": "String"
+                },
+                "img_1": {
+                    "type": "String"
+                },
+                "img_2": {
+                    "type": "String"
+                },
+                "img_c": {
+                    "type": "String"
+                },
+                "progress": {
+                    "type": "Number"
+                },
+                "user": {
+                    "type": "Schema.Types.ObjectId"
+                }
+            }
+        }
+    }
+ }
+        
+        
+        

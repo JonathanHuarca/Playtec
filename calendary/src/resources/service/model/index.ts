@@ -1,0 +1,1 @@
+export { default as Calendary } from './calendary.model'

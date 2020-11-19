@@ -1,0 +1,80 @@
+.form-group.row.align-items-center
+    h5.col-3.text-success Create createQuestion
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: "createQuestion"
+p Registrar una nueva pregunta
+p Nota:
+ul
+    li "service" : courses
+    li "language" : "es"  para  Spanish o "en" para English
+    li "fname" : nombre de la función 
+br
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 16rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    service<span class="text-danger">*</span>:"courses",
+                        |    language<span class="text-danger">*</span>:"es",
+                        |    fname<span class="text-danger">*</span>:"createQuestion",
+                        |    id_lesson : Schema.Types.ObjectId,
+                        |    question : String,
+                        |    answers : []
+                        |}
+    
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 14rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        | {
+                        |     "message": String,
+                        |     "question": {
+                        |         "answers": [],
+                        |         "_id": String,
+                        |         "id_lesson": String,
+                        |         "question": String,
+                        |         "__v": number
+                        |     }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 14rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"createQuestion",
+                        |    "id_lesson":"5f3c03137b0b2d001de45a16"
+                        |    "question":"¿Que es un Polinomio?",
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 15rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                            |{
+                            |    "message": "Pregunta creada correctamente",
+                            |    "question": {
+                            |       "answers": [],
+                            |        "_id": "5f3eba262d4da514bfbb56d6",
+                            |        "id_lesson": "5f3c03137b0b2d001de45a16",
+                            |        "question": "¿Que es un Polinomio?",
+                            |        "__v": 0
+                            |    }
+                            |}

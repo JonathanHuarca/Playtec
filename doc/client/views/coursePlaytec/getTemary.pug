@@ -1,0 +1,153 @@
+.form-group.row.align-items-center
+    h5(id="getTemary").col-3.text-success Get Temary
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getTemary'
+p Conseguir temario de un curso
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |     service<span class="text-danger">*</span>:courses,
+                        |     language<span class="text-danger">*</span>:es,
+                        |     fname<span class="text-danger">*</span>: 'getTemary',
+                        |     id_course<span class="text-danger">*</span>: String,
+                        |}
+
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 50rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "course": {
+                        |        "_id": String,
+                        |        "state": String,
+                        |        "category": String,
+                        |        "level": String,
+                        |        "img_1": String,
+                        |        "img_2": String,
+                        |        "temary": [
+                        |            {
+                        |                "_id": String,
+                        |                "completed": number,
+                        |                "course": String,
+                        |                "chapter_name": String,
+                        |                "__v": number,
+                        |                "sections": [
+                        |                    {
+                        |                        "_id": String,
+                        |                        "complete": number,
+                        |                        "chapter": String,
+                        |                        "section_name": String,
+                        |                        "__v": number
+                        |                    },
+                        |                    {
+                        |                        "_id": String,
+                        |                        "complete": number,
+                        |                        "chapter": String,
+                        |                        "section_name": String,
+                        |                        "__v": number
+                        |                    }
+                        |                ]
+                        |            }
+                        |        ]
+                        |    }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getTemary",
+                        |    "id_course":"5f36f49a4f3afa001798f914"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 90rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |    "message": "Temario del curso",
+                                |    "course": {
+                                |        "_id": "5f36f49a4f3afa001798f914",
+                                |        "state": "rejected",
+                                |        "category": "Programación",
+                                |        "level": "Intermedio",
+                                |        "img_1": "http://coursesplaytecv2.herokuapp.com/imagen_1.png",
+                                |        "img_2": "http://coursesplaytecv2.herokuapp.com/imagen_2.png",
+                                |        "temary": [
+                                |            {
+                                |                "_id": "5f37f71804ca5e1c750a64dd",
+                                |                "completed": 0,
+                                |                "course": "5f36f49a4f3afa001798f914",
+                                |                "chapter_name": "Capítulo 1",
+                                |                "__v": 0,
+                                |                "sections": [
+                                |                    {
+                                |                        "_id": "5f38114d6b24e4324b64d261",
+                                |                        "complete": 0,
+                                |                        "chapter": "5f37f71804ca5e1c750a64dd",
+                                |                        "section_name": "Vídeo1",
+                                |                        "__v": 0
+                                |                    },
+                                |                    {
+                                |                        "_id": "5f3811546b24e4324b64d262",
+                                |                        "complete": 0,
+                                |                        "chapter": "5f37f71804ca5e1c750a64dd",
+                                |                        "section_name": "Presentación PPT",
+                                |                        "__v": 0
+                                |                    }
+                                |                ]
+                                |            },
+                                |            {
+                                |                "_id": "5f37f74004ca5e1c750a64de",
+                                |                "completed": 0,
+                                |                "course": "5f36f49a4f3afa001798f914",
+                                |                "chapter_name": "Capítulo 2",
+                                |                "__v": 0,
+                                |                "sections": [
+                                |                    {
+                                |                        "_id": "5f3811646b24e4324b64d263",
+                                |                        "complete": 0,
+                                |                        "chapter": "5f37f74004ca5e1c750a64de",
+                                |                        "section_name": "Videos de reforzamiento",
+                                |                        "__v": 0
+                                |                    },
+                                |                    {
+                                |                        "_id": "5f38116c6b24e4324b64d264",
+                                |                        "complete": 0,
+                                |                        "chapter": "5f37f74004ca5e1c750a64de",
+                                |                        "section_name": "Videos de reforzamiento 2",
+                                |                        "__v": 0
+                                |                    },
+                                |                    {
+                                |                        "_id": "5f3811716b24e4324b64d265",
+                                |                        "complete": 0,
+                                |                        "chapter": "5f37f74004ca5e1c750a64de",
+                                |                        "section_name": "Videos de reforzamiento 2",
+                                |                        "__v": 0
+                                |                    }
+                                |                ]
+                                |            }
+                                |        ]
+                                |    }
+                                |}

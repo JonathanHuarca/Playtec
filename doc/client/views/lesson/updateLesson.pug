@@ -1,0 +1,87 @@
+.form-group.row.align-items-center
+    h5(id="updateLesson").col-3.text-success Update Lesson
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'updateLesson'
+p Actualizar datos de una clase
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 18rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    service<span class="text-danger">*</span>:courses,
+                        |    fname<span class="text-danger">*</span>:updateLesson,
+                        |    id_lesson<span class="text-danger">*</span>:String,
+                        |    language:es,
+                        |    name_lesson:String,
+                        |    description:String,
+                        |    url_video:String,
+                        |    docs": String,
+
+                        |}
+
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 18rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "lesson": {
+                        |        "_id": String,
+                        |        "id_course": String,
+                        |        "name_lesson": String,
+                        |        "url_video": String,
+                        |        "description": String,
+                        |        "docs": String,
+                        |        "__v": number
+                        |   }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 18rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"updateLesson",
+                        |    "id_lesson":"5f3d54b88bc4a20017d1c6b2",
+                        |    "description":"Propabibilidades 2",
+                        |    "name_lesson":"Calculo de probabilidades",
+                        |    "url_video":"https://www.youtube.com/watch?v=0lxZMaoeUno",
+                        |    "docs": "probabilidades.pptx"
+                        |}
+
+
+
+
+    .col.mx-2
+        p.lead Response(JSON)
+            div(style="height: 18rem" class=" bg-light rounded border")
+                .data
+                    pre.p-2 
+                        code(json)
+                            |{
+                            |    "message": "Clase actualizada correctamente",
+                            |    "lesson": {
+                            |        "_id": "5f3d54b88bc4a20017d1c6b2",
+                            |        "id_course": "5f32febccea1ff15ac374759",
+                            |        "name_lesson": "Calculo de probabilidades",
+                            |        "url_video": "https://www.youtube.com/watch?v=0lxZMaoeUno",
+                            |        "description":"Propabibilidades 2",
+                            |        "docs": "probabilidades.pptx",
+                            |        "__v": 0
+                            |   }
+                            |}

@@ -1,0 +1,32 @@
+div.rounded.bg-light.border.p-4.mt-4
+    h3(id="createCoursePlaytec").text-center CoursePlaytec
+    hr
+    .row.justify-content-between.align-items-center
+        .col-4.form-group.row.align-items-center.text-center.mx-2
+            label.col-form-label.col Method: 
+            input(type="text" value="POST" class="form-control col text-center text-primary" readonly)
+
+        .col-4.form-group.row.align-items-center.text-center.mx-2
+            label.col-form-label.col route: 
+            input(type="text" value="/api" class="form-control col text-center text-primary" readonly)
+
+
+        .col-8.form-group.row.align-items-center.text-center.mx-auto
+            label.col-form-label.col-3 Headers: 
+            .data
+                pre.mt-3.border.rounded.p-1
+                    code(json)
+                        | { <span class="text-success">Authorization</span>: 'Bearer ${token}' }
+
+    hr
+    include createCoursePlaytec.pug
+    hr
+    include updateCoursePlaytec.pug
+    hr
+    include getCoursePlaytec.pug
+    hr
+    include getCoursesPlaytec.pug
+    hr
+    include deleteCoursePlaytec.pug
+    hr
+    include getTemary.pug

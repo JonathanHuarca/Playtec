@@ -1,0 +1,106 @@
+.form-group.row.align-items-center
+    h5.col-3.text-success Create Course
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'createCourse'
+p Registrar un nuevo Curso
+p Nota:
+ul
+    li "service" : courses
+    li "language" : "es"  para  Spanish o "en" para English
+    li "fname" : nombre de la función 
+br
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 26rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    service<span class="text-danger">*</span>:"courses",
+                        |    language<span class="text-danger">*</span>:"es",
+                        |    fname<span class="text-danger">*</span>:"createCourse",
+                        |    id_user<span class="text-danger">*</span>:String
+                        |    course_name<span class="text-danger">*</span>:String,
+                        |    description:String,
+                        |    date_start:Date,
+                        |    date_end:Date,
+                        |    image:String,
+                        |    competences:[],
+                        |    state:String,
+                        |    level:String,
+                        |    grade:String,
+                        |    lessons:[],
+                        |    school: Boolean,
+                        |    section: String,
+                        |    students: []
+                        |}
+    
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 24rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "course": {
+                        |        "competences": [],
+                        |        "state": String,
+                        |        "grade": String,
+                        |        "lessons": [],
+                        |        "school": false,
+                        |        "section": String,
+                        |        "students": [],
+                        |        "_id": String,
+                        |        "course_name": String,
+                        |        "description": String,
+                        |        "createdBy": String,
+                        |        "__v": number
+                        |    }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 14rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"createCourse",
+                        |    "id_user":123123
+                        |    "course_name":"Comunicación",
+                        |    "description":"Antigua descripcion",
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 25rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                             | {
+                             |       "message": "Curso creado por test2",
+                             |       "course": {
+                             |           "competences": [],
+                             |           "state": "active",
+                             |           "grade": "none",
+                             |           "lessons": [],
+                             |           "school": false,
+                             |           "section": "none",
+                             |           "students": [],
+                             |           "_id": "5f3ae355fac5e7001d09c2d0",
+                             |           "course_name": "Comunicación",
+                             |           "description": "Antigua descripcion",
+                             |           "createdBy": "5f3ade8674623a0030d13b59",
+                             |           "__v": 0
+                             |         }
+                             |}

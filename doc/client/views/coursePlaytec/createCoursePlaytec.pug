@@ -1,0 +1,107 @@
+.form-group.row.align-items-center
+    h5.col-3.text-success Create CoursePlaytec
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'createCoursePlaytec'
+p Registrar un nuevo Curso
+p Nota:
+ul
+    li "service" : courses
+    li "language" : "es"  para  Spanish o "en" para English
+    li "fname" : nombre de la función 
+br
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 32rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |}
+                        |    service<span class="text-danger">*</span>:"courses",
+                        |    language<span class="text-danger">*</span>:"es",
+                        |    fname<span class="text-danger">*</span>:"createCourse",
+                        |    id_user<span class="text-danger">*</span>:String
+                        |    course_name<span class="text-danger">*</span>:String,
+                        |    description<span class="text-danger">*</span>:String,
+                        |    date_start:Date,
+                        |    date_end:Date,
+                        |    price<span class="text-danger">*</span>: Number,
+                        |    image:String,
+                        |    competences:[],
+                        |    state:String,
+                        |    level: String,
+                        |    grade:String,
+                        |    lessons:[],
+                        |    school:Boolean,
+                        |    section: String,
+                        |    students: [],
+                        |    category<span class="text-danger">*</span>:String,
+                        |    img_1: String,
+                        |    img_2: String
+                        |} 
+    
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 24rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "course": {
+                        |        "state": String,
+                        |        "progress": number,
+                        |        "_id": String,
+                        |        "course_name": String,
+                        |        "description": String,
+                        |        "price": 50,
+                        |        "img_1": String,
+                        |        "img_2": String,
+                        |        "img_c": String,
+                        |        "__v": number
+                        |    }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 14rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"createCoursePlaytec",
+                        |    "id_user":"5f3ade8674623a0030d13b59"
+                        |    "course_name":"Java",
+                        |    "description":"Lenguague de programación",
+                        |    "price":50
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 22rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |    "message": "Curso creado por 5f37fa7012fc2c0027b770dc",
+                                |    "course": {
+                                |        "state": "rejected",
+                                |        "progress": 0,
+                                |        "_id": "5f3c85646338cf0028a27c40",
+                                |        "course_name": "Java",
+                                |        "description": "Lenguague de programación",
+                                |        "price": 50,
+                                |        "img_1": "http://coursesplaytecv2.herokuapp.com/imagen_1.png",
+                                |        "img_2": "http://coursesplaytecv2.herokuapp.com/imagen_2.png",
+                                |        "img_c": "http://coursesplaytecv2.herokuapp.com/imagen_c.png",
+                                |        "__v": 0
+                                |    }
+                                |}

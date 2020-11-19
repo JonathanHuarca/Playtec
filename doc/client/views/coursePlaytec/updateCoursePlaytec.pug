@@ -1,0 +1,112 @@
+.form-group.row.align-items-center
+    h5(id="updateCoursePlaytec").col-3.text-success Update CoursePlaytec
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'updateCoursePlaytec'
+p Actualizar datos de un curso
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 32rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |}
+                        |    service<span class="text-danger">*</span>:"courses",
+                        |    language<span class="text-danger">*</span>:"es",
+                        |    fname<span class="text-danger">*</span>:"createCourse",
+                        |    id_course<span class="text-danger">*</span>:String,
+                        |    course_name:String,
+                        |    description:String,
+                        |    date_start:Date,
+                        |    date_end:Date,
+                        |    price: Number,
+                        |    image:String,
+                        |    competences:[],
+                        |    state:String,
+                        |    level: String,
+                        |    grade:String,
+                        |    lessons:[],
+                        |    school:Boolean,
+                        |    section: String,
+                        |    students: [],
+                        |    category:String,
+                        |    img_1: String,
+                        |    img_2: String
+                        |} 
+    
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 30rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                       |{
+                       |     "message": String,
+                       |     "course": {
+                       |         "_id": String,
+                       |         "competences": [],
+                       |         "state": String,
+                       |         "grade": String,
+                       |         "lessons": [],
+                       |         "school": Bolean,
+                       |         "section": String,
+                       |         "students": [],
+                       |         "course_name": String,
+                       |         "description": String,
+                       |         "price": number,
+                       |         "category": String,
+                       |         "level": String,
+                       |         "img_1": String,
+                       |         "img_2": String,
+                       |         "__v": number
+                       |     }
+                       | }
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 15rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"updateCoursePlaytec",
+                        |    "id_course":"5f36f48a014c2e002ef7de6f"
+                        |    "course_name":"JavaScrip",
+                        |    "description":"Lenguague de programación",
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 30rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |     "message": "Curso actualizado",
+                                |     "course": {
+                                |         "_id": "5f36f48a014c2e002ef7de6f",
+                                |         "competences": [],
+                                |         "state": "rejected",
+                                |         "grade": "none",
+                                |         "lessons": [],
+                                |         "school": false,
+                                |         "section": "none",
+                                |         "students": [],
+                                |         "course_name": "JavaScrip",
+                                |         "description": "Lenguague de programación",
+                                |         "price": 10,
+                                |         "category": "Programación",
+                                |         "level": "Principiante",
+                                |         "img_1": "http://coursesplaytecv2.herokuapp.com/imagen_1.png",
+                                |         "img_2": "http://coursesplaytecv2.herokuapp.com/imagen_2.png",
+                                |         "__v": 0
+                                |     }
+                                | }

@@ -1,0 +1,144 @@
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 16rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |    name:String,
+                        |    lastname:String,
+                        |    nickname<span class="text-danger">*</span>:String,
+                        |    username:String,
+                        |    email:String,
+                        |    password<span class="text-danger">*</span>:String,
+                        |    rol:String,
+                        |    courses: [{
+                        |    type:Schema.Types.ObjectId
+                        |    }]
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 18rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                               | {
+                               |     "user": {
+                               |         "rol": String,
+                               |         "courses": [],
+                               |         "_id": String,
+                               |         "nickname": String,
+                               |         "password": String,
+                               |         "createdAt": Date,
+                               |         "updatedAt": Date,
+                               |         "__v": number
+                               |     },
+                               |     "token": String
+                               | }
+                
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |    
+                        |    "nickname":"test2"
+                        |    "password":"12345"
+                        | 
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 20rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                              | {
+                              |      "user": {
+                              |          "rol": "Course",
+                              |          "courses": [],
+                              |          "_id": "5f3ade8674623a0030d13b59",
+                              |          "nickname": "test2",
+                              |          "password": "$2b$08$z8wsQmuYiN1mKYk/v2KDruf1Aoyg0tmBMt/zkPT0o9RKAf5R.nHa6",
+                              |          "createdAt": "2020-08-17T19:46:14.953Z",
+                              |          "updatedAt": "2020-08-17T19:46:14.953Z",
+                              |          "__v": 0
+                              |      },
+                              |      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmM2FkZTg2NzQ2MjNhMDAzMGQxM2I1OSIsImlhdCI
+                              |                  6MTU5NzY5MzU3NSwiZXhwIjoxNTk3Nzc5OTc1fQ.57l2H0jAe0Oys0NlCdEmrPzHyF6KUCmdrGExpBh5giE"
+                              |  }
+
+h5.text-success.mt-4 Signin
+hr
+.row.justify-content-between.align-items-center
+    .col-4.form-group.row.align-items-center.text-center.mx-2
+        label.col-form-label.col Method: 
+        input(type="text" value="POST" class="form-control col text-center text-primary" readonly)
+
+    .col-4.form-group.row.align-items-center.text-center.mx-2
+        label.col-form-label.col route: 
+        input(type="text" value="/signin" class="form-control col text-center text-primary" readonly)
+
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 7rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                    |{
+                    |     nickname<span class="text-danger">*</span>: String,
+                    |     password<span class="text-danger">*</span>: String
+                    |  } 
+
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 12rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                    |{
+                    |    "user": {
+                    |        "_id": String,
+                    |        "password": String
+                    |    },
+                    |    "token": String
+                    |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |    
+                        |    "nickname":"test2"
+                        |    "password":"12345"
+                        | 
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 15rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                              |{
+                              |  "user": {
+                              |      "_id": "5f3ade8674623a0030d13b59",
+                              |      "password": "$2b$08$z8wsQmuYiN1mKYk/v2KDruf1Aoyg0tmBMt/zkPT0o9RKAf5R.nHa6"
+                              |  },
+                              |   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmM2FkZTg2NzQ2MjNhMDAzMGQxM2I1OSIsImlhdCI6
+                              |             MTU5NzY5Mzg2MSwiZXhwIjoxNTk3NzgwMjYxfQ.vgdFH_Cti5EC087LEBDQITKeZYo4EC1bLuCjdpI8C_U"
+                              |}

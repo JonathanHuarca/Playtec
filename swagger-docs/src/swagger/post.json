@@ -1,0 +1,692 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+            "name": "MENU",
+            "url":"https://doc-playtec-v4.herokuapp.com/menu"
+          }
+        
+    },
+    "servers": [
+        {
+            "url": "https://auth-playtec-v4.herokuapp.com",
+            "description": "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://coursesplaytecv2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://siagie-playtec-v2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://community-playtec-v4.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    
+    "paths": {
+        "/api": {
+            "post": {
+                "tags": [
+                    "CREATE POST"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Crear un nuevo post",
+                "requestBody": {
+                    "description": "Crear un nuevo post",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/definitions/createPost",
+                                "properties": {
+                                    "file": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "format": "binary"
+                                      }
+                                    }
+                                  }
+                            },
+                            "example":
+                            {  
+                                "service":"community",
+                                "fname":"createPost",
+                                "description":"Historia de virreinato del Peru"
+                             }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+      
+        "/api#  ": {
+            "post": {
+                "tags": [
+                    "GET POST"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener un post",
+                "requestBody": {
+                    "description": "Obtener un post",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/getPost"
+                            },
+                            "example":
+                           {  
+                            "service":"community",
+                            "fname":"getPost",
+                            "post_id":"5f4fd9a6f002d21bd19c0186"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+       ,   "/api#     ": {
+            "post": {
+                "tags": [
+                    "GET POSTS"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener todos los post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/getPosts"
+                            },
+                            "example":
+                           {  
+                            "service":"community",
+                            "fname":"getPosts",
+                            "page":1
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            
+            }
+        }
+       ,  
+        "/api#": {
+            
+            "post": {
+                "tags": [
+                    "GET POST BY USER"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                 "summary": "Obtener los post del usuario loguedo",
+                 "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/getPostsByUser"
+                            },
+                            "example":
+                            {  
+                                "service":"community",
+                                "fname": "getPostsByUser",
+                                "page":1
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+         }
+        },
+        "/api# ": {
+            "post": {
+                "tags": [
+                    "GET POST SAVED BY USER"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener los post guardados del usuario",
+                "requestBody": {
+                    "description": "Obtener los post guardados del usuario",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/getPostsByUserSaved"
+                            },
+                            "example":
+                          {  
+                        "service":"community",
+                        "fname":"getPostsByUserSaved",
+                        "page":1
+                        }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        
+        
+        "/api#    ": {
+            "post": {
+                "tags": [
+                    "UPDATE POST"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Actualizar un post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/definitions/updatePost",
+                                "properties": {
+                                    "file": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "format": "binary"
+                                      }
+                                    }
+                                  }
+                            },
+                            "example":
+                            {  
+                                "service":"community",
+                                "fname":"createPost",
+                                "description":"Historia de virreinato del Peru"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        }
+        ,
+          
+        "/api#      ": {
+            "post": {
+                "tags": [
+                    "DELETE POST"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Eliminar un post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/deletePost"
+                            },
+                            "example":
+                            {  
+                                "service":"community",
+                                "fname": "deletePost",
+                                "post_id":"5f444b226fb5692180d7ad04"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        }
+        ,
+          
+        "/api#       ": {
+            "post": {
+                "tags": [
+                    "SAVED POST"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Guardar un post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/addToFavorites"
+                            },
+                            "example":
+                            {  
+                                "service":"community",
+                                "fname": "addToFavorites",
+                                "post_id":"5f4fd9a6f002d21bd19c0186"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        },
+        "/api#        ": {
+            "post": {
+                "tags": [
+                    "DISAGGREGATE POST"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Eliminar un post de guardados",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/disaggregatePost"
+                            },
+                            "example":
+                            {  
+                                "service":"community",
+                                "fname": "disaggregatePost",
+                                "post_id":"5f4fd9a6f002d21bd19c0186"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        }
+
+     },
+
+        "components": {        
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            },
+            
+            "responses": {
+                "UnauthorizedError":{
+                "description":"Access token is missing or invalid"
+                }
+            }
+          },
+        
+    "definitions": {
+    
+        "createPost": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{
+                    "type":"String",
+                    "description": "createPost"
+                },
+                "service":{"type":"String",
+                    "description": "community"},
+                "description": {
+                    "type": "String"
+                },
+                "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+            }
+           
+        },
+
+        "getPost": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "post_id": {
+                    "type": "String"
+                }
+            }
+           
+        },
+
+        "getPosts": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "page":{"type": "Number"}
+
+            }
+           
+        },
+
+        "getPostsByUser": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "page":{"type": "Number"}
+
+            }
+           
+        },
+        "getPostsByUserSaved": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "page":{"type": "Number"}
+
+            }
+           
+        },
+
+        "updatePost": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{
+                    "type":"String",
+                    "required": true,
+                    "description": "updatePost"
+                },
+                "service":{
+                    "type":"String",
+                    "required": true,
+                    "description": "community"
+                },
+                "post_id":{"type":"String"},
+                "description": {
+                    "type": "String",
+                    "required": true
+                },
+                "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "required": false
+                  },
+                "id_files":{
+                    "type":"array",
+                    "items": {
+                        "type": "string"
+                      },
+                      "required":false
+                }
+            }
+          
+           
+        },
+        "deletePost": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "post_id":{"type":"String"}
+
+            }
+           
+        },
+        "addToFavorites": {
+            "type": "object",
+            "properties":{
+        
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "post_id":{"type":"String"}
+
+            }
+        },
+        "disaggregatePost": {
+            "type": "object",
+            "properties":{
+
+                "fname":{"type":"String"},
+                "service":{"type":"String"},
+                "post_id":{"type":"String"}
+
+            }
+        }
+
+        
+
+    }
+}

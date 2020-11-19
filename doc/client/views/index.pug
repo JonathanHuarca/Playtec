@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title API Academy
+    block scripts
+      script(src='public/style.css')
+      link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css") 
+      script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
+      script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js")
+      script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
+  body.p-2
+    h1.display-4.text-center API Academy Documentation
+    .row.justify-content-center
+                    
+        include menu/menu.pug
+
+        .col-8.p-2
+            //- Actualizaciones
+            
+            include axios/example.pug
+            include Signin_and_Signup/index.pug
+            include course/index.pug
+            include coursePlaytec/index.pug
+            include question/index.pug 
+            include lesson/index.pug      
+

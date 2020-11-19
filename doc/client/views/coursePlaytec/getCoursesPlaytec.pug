@@ -1,0 +1,109 @@
+.form-group.row.align-items-center
+    h5(id="getCoursesPlaytec").col-3.text-success Get CoursesPlaytec
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getCoursesPlaytec'
+p Obtener cursos de un usuario que ha iniciado sesión
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 8rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        | {
+                        |    "service"<span class="text-danger">*</span>:"courses",
+                        |    "language"<span class="text-danger">*</span>:"es",
+                        |    "fname"<span class="text-danger">*</span>: "getCoursesPlaytec"
+                        | }
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 30rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": Strimg,
+                        |    "course": {
+                        |        "_id": String,
+                        |        "competences": [],
+                        |        "state": String,
+                        |        "grade": String,
+                        |        "lessons": [],
+                        |        "school": Bolean,
+                        |        "section": String,
+                        |        "students": [],
+                        |        "course_name": String,
+                        |        "description": String,
+                        |        "price": number,
+                        |        "category": String,
+                        |        "level": String,
+                        |        "img_1": String,
+                        |        "img_2": String,
+                        |        "__v": number
+                        |    }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getCoursesPlaytec"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 53rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |    "message": "Cursos encontrados",
+                                |    "courses": [
+                                |        {
+                                |            "_id": "5f36f48a014c2e002ef7de6f",
+                                |            "competences": [],
+                                |            "state": "rejected",
+                                |            "grade": "none",
+                                |            "lessons": [],
+                                |            "school": false,
+                                |            "section": "none",
+                                |            "students": [],
+                                |            "course_name": "Scratch",
+                                |            "description": "Programación con bloques",
+                                |            "price": 10,
+                                |            "category": "Programación",
+                                |            "level": "Principiante",
+                                |            "img_1": "http://coursesplaytecv2.herokuapp.com/imagen_1.png",
+                                |            "img_2": "http://coursesplaytecv2.herokuapp.com/imagen_2.png",
+                                |            "__v": 0
+                                |        },
+                                |        {
+                                |            "_id": "5f36f49a4f3afa001798f914",
+                                |            "competences": [],
+                                |            "state": "rejected",
+                                |            "grade": "none",
+                                |            "lessons": [],
+                                |            "school": false,
+                                |            "section": "none",
+                                |            "students": [],
+                                |            "course_name": "Scratch",
+                                |            "description": "Programación con bloques",
+                                |            "price": 10,
+                                |            "category": "Programación",
+                                |            "level": "Intermedio",
+                                |            "img_1": "http://coursesplaytecv2.herokuapp.com/imagen_1.png",
+                                |            "img_2": "http://coursesplaytecv2.herokuapp.com/imagen_2.png",
+                                |            "__v": 0
+                                |        }
+                                |}

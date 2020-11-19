@@ -1,0 +1,473 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+            "name": "MENU",
+            "url":"https://doc-playtec-v4.herokuapp.com/menu"
+          }
+        
+    },
+    "servers": [
+        {
+            "url": "https://auth-playtec-v4.herokuapp.com",
+            "description": " servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://coursesplaytecv2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://siagie-playtec-v2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    
+    "paths": {
+       
+        
+        "/api": {
+            "post": {
+                "tags": [
+                    "GET COURSES"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener todos los cursos",
+                "requestBody": {
+                    "description": "Obtener todos  los cursos",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetCourses"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getCourses"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+        },
+        "/api#": {
+            "post": {
+                "tags": [
+                    "GET COURSE"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener un curso por su id",
+                "requestBody": {
+                    "description": "Obtener un curso por su id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetCourse"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getCourse",
+                                "id_course":"5f330133cea1ff15ac37475a"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        "/api# ": {
+            "post": {
+                "tags": [
+                    "CREATE COURSE"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Registrar un nuevo curso",
+                "requestBody": {
+                    "description": "Registrar un nuevo curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/CreateCourse"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"createCourse",
+                                "id_user":123123,
+                                "course_name":"Comunicación",
+                                "description":"curso de comunicacion escrita"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        "/api#  ": {
+            "post": {
+                "tags": [
+                    "UPDATE COURSE"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Actualizar datos de un curso",
+                "requestBody": {
+                    "description": "Actualizar datos de un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/UpdateCourse"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"updateCourse",
+                                "id_course":"5f3ae355fac5e7001d09c2d0",
+                                "course_name":"Historia",
+                                "description":"Actualizada descripcion"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+       
+        "/api#    ": {
+            "post": {
+                "tags": [
+                    "DELETE COURSE"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Eliminar datos de un curso",
+                "requestBody": {
+                    "description": "Eliminar datos de un curso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/DeleteCourse"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                 "fname": "deleteCourse",
+                                "id_course":"5f3ae355fac5e7001d09c2d0"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }   
+          }
+        },
+        "components": {        
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            },
+            
+            "responses": {
+                "UnauthorizedError":{
+                "description":"Access token is missing or invalid"
+                }
+            }
+          },
+        
+    "definitions": {
+
+        "UserLogin": {
+            "type": "object",
+            "properties": {
+                "name":{
+                    "type": "String"
+                },
+                "lastname":"Canorio",
+                 "username":"Castilla",
+                "nickname": {
+                    "type": "String"
+                },
+                "password": {
+                    "type": "String"
+                }
+            }
+           
+        },
+        "UserRegister": {
+            "type": "object",
+            "properties": {
+                "nickname": {
+                    "type": "String"
+                },
+                "password": {
+                    "type": "String"
+                }
+            }
+           
+        }
+        ,
+        "UserRegisterResponse":{
+            "type":"object",
+            "properties":{
+                "nickname":{
+                    "type":"String"
+                },
+                "password":{
+                    "type":"String"
+                }
+            }
+        },
+        
+        "GetCourses": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                }
+            }
+           
+        },
+        "GetCourse": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_course": {
+                    "type": "String"
+                }
+            }
+           
+        },
+        
+        "CreateCourse": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_user": {
+                    "type": "number"
+                },
+                "course_name": {
+                    "type": "String"
+                },
+                "description": {
+                    "type": "String"
+                }
+            }
+           
+        },
+      
+        "UpdateCourse": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_course": {
+                    "type": "String"
+                },
+                "course_name": {
+                    "type": "String"
+                },
+                "description": {
+                    "type": "String"
+                }
+            }
+           
+        },
+        
+        "DeleteCourse": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_course": {
+                    "type": "String"
+                }
+            }
+           
+        }
+    } 
+}

@@ -1,0 +1,74 @@
+.form-group.row.align-items-center
+    h5(id="getQuestionByLesson").col-3.text-success Get QuestionByLesson
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getQuestionByLesson'
+p Obtener preguntas de una clase
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 8rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        | {
+                        |    "service"<span class="text-danger">*</span>:"courses",
+                        |    "language"<span class="text-danger">*</span>:"es",
+                        |    "fname"<span class="text-danger">*</span>: "getQuestionByLesson"
+                        |    "id_lesson"<span class="text-danger">*</span>:String
+                        | }
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 20rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "questions": [
+                        |        {
+                        |            "answers": [],
+                        |            "_id": String,
+                        |            "id_lesson": String,
+                        |            "question": String,
+                        |            "__v": number
+                        |        }
+                        |    ]
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getQuestionByLesson"
+                        |    "id_lesson":"5f3804e78deb1f321c6343ea"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 16rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |    "message": "Todas las preguntas de la clase encontradas",
+                                |    "questions": [
+                                |        {
+                                |            "answers": [],
+                                |            "_id": "5f3eb41f2d4da514bfbb56d0",
+                                |            "id_lesson": "5f3804e78deb1f321c6343ea",
+                                |            "question": "¿Que es Pyton?",
+                                |            "__v": 0
+                                |        }
+                                |    ]
+                                |}

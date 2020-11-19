@@ -1,0 +1,552 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+            "name": "MENU",
+            "url":"https://doc-playtec-v4.herokuapp.com/menu"
+          }
+        
+    },
+    "servers": [
+        {
+            "url": "https://auth-playtec-v4.herokuapp.com",
+            "description": "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://coursesplaytecv2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://siagie-playtec-v2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    
+    "paths": {
+        "/api": {
+            "post": {
+                "tags": [
+                    "CREATE LESSON"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Registrar una nueva clase",
+                "requestBody": {
+                    "description": "Registrar un nuevo clase",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/CreateLesson"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"createLesson",
+                                "id_course":"5f32febccea1ff15ac374759",
+                                "name_lesson":"Historia de virreinato del Peru",
+                                "description":"Historia de Peru 1° de Secundaria" ,
+                                "url_video" :"www.youtube.com/watch?v=Kn8iGpgteHc",
+                                "docs":"historia.pptx"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+      
+        "/api # ": {
+            "post": {
+                "tags": [
+                    "GET LESSONS"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener todas las lecciones ",
+                "requestBody": {
+                    "description": "Obtener todas las lecciones",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetLessons"
+                            },
+                            "example":
+                           {  
+                            "service":"courses",
+                            "language":"es",
+                            "fname":"getAllLessons"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+       ,   "/api#     ": {
+            "post": {
+                "tags": [
+                    "GET LESSON"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener una leccion por su id",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetLesson"
+                            },
+                            "example":
+                           {  
+                            "service":"courses",
+                            "language":"es",
+                            "fname":"getOneLesson",
+                            "id_lesson":"5f3d54b88bc4a20017d1c6b2"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            
+            }
+        }
+       ,  
+        "/api#": {
+            
+            "post": {
+                "tags": [
+                    "GET LESSONS BY COURSE"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                 "summary": "Obtener las lecciones de un curso",
+                 "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/getLessonsByCourse"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                 "fname": "GetLessons",
+                                "id_course":"5f3ae355fac5e7001d09c2d0"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+         }
+        },
+        "/api# ": {
+            "post": {
+                "tags": [
+                    "UPDATE LESSON"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Actualizar datos de una clase",
+                "requestBody": {
+                    "description": "Actualizar datos de una clase",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/UpdateLesson"
+                            },
+                            "example":
+                          {  
+                        "service":"courses",
+                        "language":"es",
+                        "fname":"updateLesson",
+                        "id_lesson":"5f3d54b88bc4a20017d1c6b2",
+                        "description":"Propabibilidades 2",
+                        "name_lesson":"Calculo de probabilidades",
+                        "url_video":"https://www.youtube.com/watch?v=0lxZMaoeUno",
+                        "docs": "probabilidades.pptx"
+                        }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        
+        
+        "/api#    ": {
+            "post": {
+                "tags": [
+                    "DELETE LESSON"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Eliminar una clase",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/DeleteCourse"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                 "fname": "deleteCourse",
+                                "id_course":"5f3ae355fac5e7001d09c2d0"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+
+        }
+     },
+
+        "components": {        
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            },
+            
+            "responses": {
+                "UnauthorizedError":{
+                "description":"Access token is missing or invalid"
+                }
+            }
+          },
+        
+    "definitions": {
+    
+        "GetLessons": {
+            "type": "object",
+            "properties":{
+           
+                "service": {
+                    "type": "String"
+                },
+                "nickname": {
+                    "type": "String"
+                },
+                "fname": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+            }
+           
+        }
+        ,
+        
+        "GetLesson":{
+            "type":"object",
+            
+            "properties":{
+                "service":{
+                    "type":"String"
+                },
+                "fname":{
+                    "type":"String"
+                },
+                "language":{
+                    "type":"String"
+                },
+                "id_lesson":{
+                    "type":"String"
+                }
+            }
+        },
+       
+        "CreateLesson": 
+        {
+            "type": "object",
+            "properties": 
+            {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                }
+                ,
+                "id_course": {
+                    "type": "String"
+                }
+                ,
+                "name_lesson": {
+                    "type": "String"
+                }
+                ,
+                "description": {
+                    "type": "String"
+                },
+                "url_video": {
+                    "type": "String"
+                },
+                "docs": {
+                    "type": "String"
+                }
+            }
+           
+       },
+        "UpdateLesson": {
+            "type": "object",
+           
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_lesson": {
+                    "type": "String"
+                },
+                "description": {
+                    "type": "String"
+                },
+                "name_lesson": {
+                    "type": "String"
+                },
+                "url_video": {
+                    "type": "String"
+                },
+                "docs": {
+                    "type": "String"
+                }
+            }
+           
+        },
+       
+        "getLessonsByCourse": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_course": {
+                    "type": "number"
+                }
+            }
+           
+        },
+      
+       
+        "DeleteLesson": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_course": {
+                    "type": "String"
+                }
+            }
+           
+        },
+        
+        "DeleteCourse": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_course": {
+                    "type": "String"
+                }
+            }
+           
+        }
+
+    }
+}

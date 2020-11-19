@@ -1,0 +1,68 @@
+{
+    "openapi":"3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+          "name": "Playtec",
+          "url":"http://www.playtecgroup.com/"
+        }
+      },
+    
+    "tags": [
+          {
+            "name": "Signin and Signup",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/auth"
+            }
+          },
+          {
+            "name": "Course",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/courses"
+             }
+          },
+          {
+            "name": "CoursePlaytec",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/coursePlaytec"
+            }
+          },
+          {
+            "name": "Question",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/questions"
+            }  
+          }
+          ,
+          {
+            "name": "Lesson",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/lessons"
+            }
+          },
+          {
+            "name": "Calendary",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/calendary"
+            }
+          },
+          {
+            "name": "Post",
+            "externalDocs": {
+              "description": "Accede a la siguientes apis mediante esta url",
+              "url": "https://doc-playtec-v4.herokuapp.com/post"
+            }
+          }
+        ],
+        "paths": { }
+}
+        
+        

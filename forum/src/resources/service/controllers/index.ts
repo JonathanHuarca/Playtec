@@ -1,0 +1,5 @@
+export { default as addQuestion } from './forum/addQuestion'
+export { default as addAnswer } from './forum/addAnswer'
+//export { default as getForum } from './forum/getForum2'
+export { default as getAnswers } from './forum/getAnswers'
+export { default as getForum } from './forum/getQuestions'

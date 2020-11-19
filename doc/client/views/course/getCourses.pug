@@ -1,0 +1,92 @@
+.form-group.row.align-items-center
+    h5(id="getCourses").col-3.text-success Get Courses
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getCourses'
+p Obtener cursos de un usuario que ha iniciado sesión
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 8rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        | {
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname"<span class="text-danger">*</span>: "getCourses"
+                        | }
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 24rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "courses": [
+                        |        {
+                        |            "_id": String,
+                        |            "competences": [],
+                        |            "state": String,
+                        |            "grade": String,
+                        |            "lessons": [],
+                        |            "school": Boolean,
+                        |            "section": String,
+                        |            "students": [],
+                        |            "course_name": String,
+                        |            "__v": number
+                        |        }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getCourses"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 37rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |     "message": "Cursos encontrados",
+                                |     "courses": [
+                                |         {
+                                |             "_id": "5f32febccea1ff15ac374759",
+                                |             "competences": [],
+                                |             "state": "active",
+                                |             "grade": "none",
+                                |             "lessons": [],
+                                |             "school": false,
+                                |             "section": "none",
+                                |             "students": [],
+                                |             "course_name": "xdddd",
+                                |             "__v": 0
+                                |         },
+                                |         {
+                                |             "_id": "5f330133cea1ff15ac37475a",
+                                |             "competences": [],
+                                |             "state": "active",
+                                |             "grade": "none",
+                                |             "lessons": [],
+                                |             "school": false,
+                                |             "section": "none",
+                                |             "students": [],
+                                |             "course_name": "xdddd",
+                                |             "__v": 0
+                                |        }
+                                |}

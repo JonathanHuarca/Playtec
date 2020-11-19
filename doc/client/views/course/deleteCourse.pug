@@ -1,0 +1,57 @@
+.form-group.row.align-items-center
+    h5(id="deleteCourse").col-3.text-success Delete Course
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'deleteCourse'
+p Eliminar un curso
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |     service<span class="text-danger">*</span>:"courses",
+                        |     language<span class="text-danger">*</span>:"es",
+                        |     fname<span class="text-danger">*</span>: "deleteCourse",
+                        |     id_course<span class="text-danger">*</span>: String,
+                        |}
+    
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 9rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |     "fname": "deleteCourse"
+                        |    "id_course":"5f3ae355fac5e7001d09c2d0"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 10rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                            |{
+                            |    "message": "Curso eliminado"
+                            |}

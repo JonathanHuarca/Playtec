@@ -1,0 +1,33 @@
+div.rounded.bg-light.border.p-4.mt-4
+    h5(id="axios").text-success.mt-4 Example post with axios
+    hr
+    .row.justify-content-center.mt-2
+        .col.mx-2
+  
+            div(style="height: 30rem" class=" bg-light rounded border")
+                .data
+                    pre.p-2
+                        code(json)
+                            |axios({
+                            |    method:'POST',
+                            |    url:'https://auth-playtec-v2.herokuapp.com/api'
+                            |    headers:{
+                            |        Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IY5MzU3NSwiZXhwIjoxNTk3Nzc5OTc1fQ.57l2H0jAedEmrPzHyF6KUCmdrGExpBh5giE'
+                            |    },
+                            |    data:{
+                            |        service:'courses',
+                            |        fname:'getCourses',
+                            |        language:'es',
+                            |        //mas campos
+                            |    }
+                            |})
+                            |.then(res => console.log(res.data))
+                            |.catch(err => {
+                            |    if(!err.response){
+                            |        console.log(err)
+                            |    }else{
+                            |        console.log(err.response.data)
+                            |    }
+                            |})
+br
+

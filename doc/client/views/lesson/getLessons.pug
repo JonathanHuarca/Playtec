@@ -1,0 +1,77 @@
+.form-group.row.align-items-center
+    h5(id="getLessons").col-3.text-success Get Lessons
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getAllLessons'
+p Conseguir todas las clases
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |     service<span class="text-danger">*</span>:getAllLessons,
+                        |     fname<span class="text-danger">*</span>: courses,
+                        |     language:es,
+                        |}
+
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 18rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "lessons": [
+                        |        {
+                        |            "_id": String,
+                        |            "id_course": String,
+                        |            "name_lesson": String,
+                        |             "description": String,
+                        |            "url_video": String,
+                        |            "__v": number
+                        |        }
+                        |               ]
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getAllLessons"
+                        |}
+
+    .col.mx-2
+        p.lead Response(JSON)
+            div(style="height: 24rem" class=" bg-light rounded border")
+                .data
+                    pre.p-2 
+                        code(json)
+                            |{
+                            |    "message": "Todas las clases encontradas",
+                            |    "lessons": [
+                            |        {
+                            |            "_id": "5f3d54b88bc4a20017d1c6b2",
+                            |            "id_course":"5f32febccea1ff15ac374759",
+                            |            "name_lesson":"Historia de virreinato del Peru",
+                            |            "description":"Historia de Peru 1° de  Secundaria",
+                            |            "url_video": "https://www.youtube.com/watch?v=Kn8iGpgteHc",
+                            |            "__v": 0
+                            |        }
+                            |               ]      
+                            |}
+
+

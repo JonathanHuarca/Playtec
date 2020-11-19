@@ -1,0 +1,71 @@
+.form-group.row.align-items-center
+    h5(id="getOneQuestion").col-3.text-success Get OneQuestion
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getOneQuestion'
+p Conseguir datos de una pregunta
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |     service<span class="text-danger">*</span>:"courses",
+                        |     language<span class="text-danger">*</span>:"es",
+                        |     fname<span class="text-danger">*</span>: "getOneQuestion",
+                        |     id_question<span class="text-danger">*</span>: String,
+                        |}
+
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 24rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": String,
+                        |    "question": {
+                        |        "answers": [],
+                        |        "_id": String,
+                        |        "id_lesson": String,
+                        |        "question": String,
+                        |        "__v": number
+                        |    }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getOneQuestion",
+                        |    "id_course":"5f3eb6262d4da514bfbb56d3"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 24rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                                |{
+                                |    "message": "Pregunta encontrada",
+                                |    "question": {
+                                |        "answers": [],
+                                |        "_id": "5f3eb6262d4da514bfbb56d3",
+                                |        "id_lesson": "5f3ab2bf98c55e2fe4a6cf8c",
+                                |        "question": "¿Que es TypeScrip?",
+                                |        "__v": 0
+                                |    }
+                                |}

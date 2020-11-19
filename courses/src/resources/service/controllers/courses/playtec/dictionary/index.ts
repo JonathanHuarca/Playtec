@@ -1,0 +1,1 @@
+export { default as msgCreateCourse } from './create_course.msg'

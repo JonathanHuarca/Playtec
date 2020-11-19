@@ -1,0 +1,541 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Academy Documentation",
+        "description": "Documentacion de las apis hechas para la aplicación de Playtec Academy",
+        "contact": {
+            "name": "MENU",
+            "url":"https://doc-playtec-v4.herokuapp.com/menu"
+          }
+        
+    },
+    "servers": [
+        {
+            "url": "https://auth-playtec-v4.herokuapp.com",
+            "description": "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://coursesplaytecv2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        },
+        {
+            "url": "https://siagie-playtec-v2.herokuapp.com",
+            "description":  "servidor desplegado en Heroku"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    
+    "paths": {
+        "/api": {
+            "post": {
+                "tags": [
+                    "CREATE QUESTION"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Registrar una nueva pregunta",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/CreateQuestion"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"createQuestion",
+                                "id_lesson":"5f3c03137b0b2d001de45a16",
+                                "question":"¿Que es un Polinomio?"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+      
+        "/api#": {
+            "post": {
+                "tags": [
+                    "GET_ALL_QUESTIONS"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                
+                "summary": "Conseguir todas las preguntas",
+                "requestBody": {
+                    "description": "Conseguir todas las preguntas",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetAllQuestions"
+                            },
+                            "example":
+                           {  
+                            "service":"courses",
+                            "language":"es",
+                            "fname":"getAllQuestions"
+                            }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+       ,   "/api# ": {
+            "post": {
+                "tags": [
+                    "GET_ONE_QUESTION "
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener una pregunta por su id",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetOneQuestion"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getOneQuestion",
+                                "id_question":"5f48534b699f1d001c778ab7"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+       ,  
+       
+       
+        "/api#  ": {
+            "post": {
+                "tags": [
+                    "GET_QUESTION_BY_LESSON"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Obtener preguntas por clase",
+                "requestBody": {
+                    "description": "Obtener preguntas de una clase",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/GetQuestionByLesson"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname":"getQuestionByLesson",
+                                "id_lesson":"5f3804e78deb1f321c6343ea"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+        }
+        ,
+        
+        "/api#   ": {
+            "post": {
+                "tags": [
+                    "UPDATE QUESTION"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Actualizar una pregunta",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/UpdateQuestion"
+                            },
+                            "example":
+                            {  
+                               "service":"courses",
+                                "language":"es",
+                                "fname":"updateQuestion",
+                                "id_question": "5f3eb5432d4da514bfbb56d2",
+                                "question" : "¿Que es Pyton?"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        },
+        
+        "/api#    ": {
+            "post": {
+                "tags": [
+                    "DELETE QUESTION"
+                ],
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                 ],
+                "summary": "Eliminar una pregunta",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/DeleteQuestion"
+                            },
+                            "example":
+                            {  
+                                "service":"courses",
+                                "language":"es",
+                                "fname": "deleteQuestion",
+                                "id_question":"5f3eb41f2d4da514bfbb56d0"
+                             }
+                        }
+                    }
+                },
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description":"Created"
+                    },
+                    "401": {
+                        "description":"Unauthorized",
+                        "schema": {
+                            "$ref": "#/components/responses/UnauthorizedError"
+                        }
+                    },
+                    "500": {
+                        "description":"Internal server error"
+                    }
+                }
+            }
+            
+        }
+       
+        
+        },
+        "components": {        
+            "securitySchemes": {
+              "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+              }
+            },
+            
+            "responses": {
+                "UnauthorizedError":{
+                "description":"Access token is missing or invalid"
+                }
+            }
+          },
+        
+    "definitions": {
+
+        "CreateQuestion":{
+            "type":"object",
+            
+            "properties":{
+                "service":{
+                    "type":"String"
+                },
+                "fname":{
+                    "type":"String"
+                },
+                "language":{
+                    "type":"String"
+                },
+                "id_lesson":{
+                    "type":"Schema.Types.ObjectId"
+                }
+                ,
+                
+                "answers":{
+                    "type":"[]"
+                },
+                "question":{
+                    "type":"String"
+                }
+            }
+        },
+        
+        "GetAllQuestions": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                }
+            }
+           
+        },
+      
+        "GetOneQuestion": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_question": {
+                    "type": "String"
+                }
+            }
+           
+        },
+       
+        "GetQuestionByLesson": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                } ,
+                "id_lesson": {
+                    "type": "String"
+                } ,
+                "description": {
+                    "type": "String"
+                } ,
+                "name_lesson": {
+                    "type": "String"
+                } ,
+                "url_video": {
+                    "type": "String"
+                },
+                "docs": {
+                    "type": "String"
+                }
+            }
+           
+        },
+       
+        "UpdateQuestion": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                },
+                "id_question": {
+                    "type": "String"
+                },
+                "question": {
+                    "type": "String"
+                },
+                "answers ": {
+                    "type": "[]"
+                }
+            }
+           
+        },
+       
+        "getQuestionByLesson": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                }
+            }
+           
+        },
+       
+        "DeleteQuestion": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "String"
+                },
+                "language": {
+                    "type": "String"
+                }
+                ,
+                "fname": {
+                    "type": "String"
+                } ,
+                "id_question": {
+                    "type": "String"
+                }
+            }
+           
+        }
+     
+
+    }
+}

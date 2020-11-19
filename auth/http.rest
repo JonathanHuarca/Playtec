@@ -1,0 +1,60 @@
+### Production
+POST https://auth-playtec-v2.herokuapp.com/api
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzdmYTcwMTJmYzJjMDAyN2I3NzBkYyIsImlhdCI6MTU5Nzc5NzQxMiwiZXhwIjoxNTk3ODgzODEyfQ.8EPAMEl7NtYU629W8S63s6RSGk42QX1YNsYLU6GXGEw
+
+{
+  "service":"courses",
+  "language":"en",
+  "fname": "getCourses"
+}
+### SIGNUP
+POST https://auth-playtec-v2.herokuapp.com/signin
+content-type: application/json
+
+{
+  "nickname":"test1",
+  "password":"12345"
+}
+
+### Production
+POST https://siagie-playtec-v2.herokuapp.com/api
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMmY0OTkzOWQwOWQwMmVlZDk3YjljMyIsImlhdCI6MTU5NzQzNjM4OCwiZXhwIjoxNTk3NTIyNzg4fQ.csGhGSlDptoRv1fJnSBly3E9Gr4GJyiZJT3iMLHmR68
+
+{
+  "service":"siagie",
+  "language":"en",
+  "fname": "getSiagieAll"
+}
+
+### Development
+
+POST http://localhost:4200/api
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzdmYTcwMTJmYzJjMDAyN2I3NzBkYyIsImlhdCI6MTU5NzYwODkzNiwiZXhwIjoxNTk3Njk1MzM2fQ.BiaKFZ3johaoErab-lhAZ_055JsicbpX9pPPxR6uG1s
+
+{
+  "service":"courses",
+  "language":"es",
+  "fname": "getCourses"
+}
+### 
+POST http://localhost:4200/signin
+content-type: application/json
+
+{
+  "nickname":"test1",
+  "password":"12345"
+}
+
+### Courses Services
+
+POST https://coursesplaytecv2.herokuapp.com/api
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMmY0OTkzOWQwOWQwMmVlZDk3YjljMyIsImlhdCI6MTU5NzI3MjY0MCwiZXhwIjoxNTk3MzU5MDQwfQ.MMqc_RKbw-p5E03T53XKTb2RD3gdDKQopl_UJrSrPdg
+
+{
+  "service":"courses",
+  "fname":"getCourses"
+}

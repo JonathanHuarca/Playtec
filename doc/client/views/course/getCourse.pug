@@ -1,0 +1,85 @@
+.form-group.row.align-items-center
+    h5(id="getCourse").col-3.text-success Get Course
+    .data
+        pre.mt-3.p-1.text-center.border.rounded
+            code(json).mx-auto
+                |  fname: 'getCourse'
+p Conseguir datos de un curso
+br
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{
+                        |     service<span class="text-danger">*</span>:"courses",
+                        |     language<span class="text-danger">*</span>:"es",
+                        |     fname<span class="text-danger">*</span>: "getCourse",
+                        |     id_course<span class="text-danger">*</span>: String,
+                        |}
+
+    .col.mx-2
+        p.lead Response(JSON)
+        div(style="height: 24rem" class=" bg-light rounded border")
+            .data
+                pre.p-2 
+                    code(json)
+                        |{
+                        |    "message": "Curso encontrado",
+                        |    "data": {
+                        |        "_id": "5f38412c58a38a001de3c542",
+                        |        "competences": [],
+                        |        "state": "active",
+                        |        "grade": "none",
+                        |        "lessons": [],
+                        |        "school": false,
+                        |        "section": "none",
+                        |        "students": [],
+                        |        "course_name": "Aritmetica",
+                        |        "description": "xd",
+                        |        "createdBy": "5f37fa7012fc2c0027b770dc",
+                        |        "__v": 0
+                        |    }
+                        |}
+
+h5.text-success.mt-4 Example
+hr
+.row.justify-content-center.mt-2
+    .col.mx-2
+        p.lead Body(JSON)
+        div(style="height: 10rem" class=" bg-light rounded border")
+            .data
+                pre.p-2
+                    code(json)
+                        |{  
+                        |    "service":"courses",
+                        |    "language":"es",
+                        |    "fname":"getCourse",
+                        |    "id_course":"5f3ae355fac5e7001d09c2d0"
+                        |}
+
+    .col.mx-2
+            p.lead Response(JSON)
+                div(style="height: 24rem" class=" bg-light rounded border")
+                    .data
+                        pre.p-2 
+                            code(json)
+                            | {
+                            |    "message": "Curso encontrado",
+                            |    "data": {
+                            |        "_id": "5f3ae355fac5e7001d09c2d0",
+                            |        "competences": [],
+                            |        "state": "active",
+                            |        "grade": "none",
+                            |        "lessons": [],
+                            |        "school": false,
+                            |        "section": "none",
+                            |        "students": [],
+                            |        "course_name": "Historia",
+                            |        "description": "universal",
+                            |        "createdBy": "5f3ade8674623a0030d13b59",
+                            |        "__v": 0
+                            |    }
+                            |}

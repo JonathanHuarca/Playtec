@@ -1,0 +1,1 @@
+{"version":3,"file":"apiAdapter.js","sourceRoot":"","sources":["../../src/utils/apiAdapter.ts"],"names":[],"mappings":";;;;;AAAA,kDAAyB;AAEzB,MAAM,UAAU,GAAG,OAAO,CAAC,EAAE;IAC3B,OAAO,eAAK,CAAC,MAAM,CAAC;QAClB,OAAO,EAAE,OAAO;KACjB,CAAC,CAAA;AACJ,CAAC,CAAA;AAED,kBAAe,UAAU,CAAA"}
